@@ -1,0 +1,106 @@
+header {
+  height: 100px;
+  color: #ffffff;
+  display: grid;
+  align-items: center;
+}
+.header-unscroll {
+  background-color: transparent;
+}
+.header-scroll {
+  /* background-color: #f5f5dc; */
+  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  animation: headerScrollAni 0.4s ease-in-out;
+  transform-origin: top;
+}
+@keyframes headerScrollAni {
+  from {
+    transform: translateY(-100vh);
+    transform: scaleY(0);
+  }
+  to {
+    transform: translateY(0);
+    transform: scaleY(1);
+  }
+}
+.header-col1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-col1 h1 {
+  background: linear-gradient(45deg, #780206, #061161);
+  color: transparent;
+  -webkit-background-clip: text;
+  font-weight: 800;
+}
+.header-col2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-col3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-col3 .header-col3-buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0px 20px;
+}
+.header-col3-buttonDiv button {
+  /* background: linear-gradient(45deg, #c04848, #480048); */
+  background: linear-gradient(45deg, #780206, #061161);
+  color: #ffffff;
+  font-weight: 500;
+  border: none;
+  outline: none;
+}
+.header-col3-buttonDiv .header-col3-hamburger {
+  color: #4a0404;
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .header-col3-buttonDiv button {
+    font-weight: 500;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 770px) {
+  .header-col3-buttonDiv button {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .header-col3-buttonDiv button {
+    margin-right: 0px;
+  }
+}
+@media screen and (max-width: 576px) {
+  header {
+    height: 60px;
+  }
+  .header-col1 {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 25px;
+  }
+  .header-col3 {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 25px;
+  }
+  .header-col3-buttonDiv .header-col3-hamburger {
+    display: block;
+  }
+  .header-unscroll {
+    background-color: #f5f5dc;
+  }
+  .header-col2-navDiv-show {
+    display: none;
+  }
+}

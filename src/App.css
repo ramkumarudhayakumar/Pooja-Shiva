@@ -1,0 +1,11 @@
+.App {
+  width: 100vw;
+  height: auto;
+  background-image: url("./Assets/background-main.svg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.custom-whatsapp {
+  width: 10px !important;
+}
