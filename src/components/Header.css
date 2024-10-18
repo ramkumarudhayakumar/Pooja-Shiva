@@ -51,12 +51,70 @@ header {
   gap: 0px 20px;
 }
 .header-col3-buttonDiv button {
-  /* background: linear-gradient(45deg, #c04848, #480048); */
   background: linear-gradient(45deg, #780206, #061161);
   color: #ffffff;
   font-weight: 500;
+  font-size: 15px;
   border: none;
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px, rgba(0, 0, 0, 0.5) 0px 6px 6px;
+  position: relative;
+  isolation: isolate;
+  transition: all 0.3s ease-in-out;
+}
+.header-col3-buttonDiv button:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+}
+.header-col3-buttonDiv button:focus .Language-list {
+  display: grid;
+}
+.Language-list {
+  background: linear-gradient(45deg, #780206, #061161);
+  color: #ffffff;
+  padding: 10px 0;
+  width: 100%;
+  height: auto;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 5px;
+  display: none;
+  justify-content: center;
+  align-items: start;
+  border-radius: 15px;
+  position: absolute;
+  left: 0;
+  top: 120%;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px, rgba(0, 0, 0, 0.5) 0px 6px 6px;
+  transform-origin: top;
+  animation: listAni 0.4s linear;
+}
+@keyframes listAni {
+  from {
+    transform: scaleY(0) translateY(-10px);
+  }
+  to {
+    transform: scaleY(1) translateY(0);
+  }
+}
+.Language-list:hover {
+  display: grid;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 20px, rgba(0, 0, 0, 0.5) 0px 6px 6px;
+}
+.Language-list::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #780206, #061161);
+  border-radius: 5px;
+  transform: rotateZ(45deg);
+  top: -5%;
+  left: 50%;
+  z-index: -1;
+}
+.Language-list li {
+  list-style: none;
+  text-shadow: 2px 2px 5px #000000;
 }
 .header-col3-buttonDiv .header-col3-hamburger {
   color: #4a0404;
@@ -68,6 +126,13 @@ header {
     font-weight: 500;
     font-size: 12px;
     margin-right: 10px;
+  }
+  .Language-list {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .header-col1 h1 {
+    margin-right: -20px;
   }
 }
 @media screen and (max-width: 770px) {

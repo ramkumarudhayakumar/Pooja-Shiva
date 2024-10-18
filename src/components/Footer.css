@@ -144,8 +144,8 @@ footer::before {
   height: 100%;
 }
 .footer-iconic {
-  margin-bottom: 8px;
-  margin-left: -2px;
+  margin-bottom: 5px;
+  margin-left: -1.5px;
 }
 .social-icons {
   display: flex;
@@ -242,6 +242,7 @@ footer::before {
   }
   .footer-iconic {
     margin-left: -4px;
+    margin-bottom: 8px;
   }
   .footer-icon {
     width: 30px;

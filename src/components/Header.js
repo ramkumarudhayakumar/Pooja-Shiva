@@ -31,7 +31,7 @@ export default function Header() {
     >
       <div className="row">
         <div className="col-3 col-sm-2 header-col1">
-          <h1>LOGO</h1>
+          <h1>SHIVA</h1>
         </div>
         <div className="col-1 col-sm-8 header-col2">
           <div className={!showNav ? "header-col2-navDiv-show" : ""}>
@@ -52,9 +52,16 @@ export default function Header() {
             >
               <Hamburger toggled={isOpen} toggle={setOpen} />
             </div>
-            <button type="button" className="btn rounded-pill">
-              Contact Me
-            </button>
+            <div>
+              <button type="button" className="btn rounded-pill">
+                Language
+                <ul className="Language-list">
+                  <li>Tamil</li>
+                  <li>English</li>
+                  <li>Hindi</li>
+                </ul>
+              </button>
+            </div>
           </div>
         </div>
       </div>

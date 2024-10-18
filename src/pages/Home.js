@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useRef } from "react";
 import "./Home.css";
 import BgParticles from "./particles/BgParticles";
 import { motion } from "framer-motion";
@@ -11,6 +11,9 @@ import Gallery1 from "../Assets/gallery/gallerypic1.jpeg";
 import Footer from "../components/Footer";
 import Hanuman from "../animation/Hanuman.json";
 import Sivan from "../animation/Sivan.json";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const h1Variants = {
   hidden: {
@@ -324,6 +327,64 @@ function Services() {
 }
 
 function Contact() {
+  const form = useRef();
+  const [inputValue, setInputValue] = useState({
+    Name: "",
+    PhoneNumber: "",
+    Email: "",
+    Subject: "",
+    Message: "",
+  });
+  function formValueChangeHandler(e) {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInputValue({ ...inputValue, [name]: value });
+  }
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_gwxyyqh", "template_6f7cu1p", form.current, {
+        publicKey: "ls8y1GWDZYXwvIJ9B",
+      })
+      .then(
+        () => {
+          toast.success("Sent Successfully!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          e.target.reset();
+          setInputValue({
+            Name: "",
+            PhoneNumber: "",
+            Email: "",
+            Subject: "",
+            Message: "",
+          });
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+          toast.error("Failed To Sent!", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      );
+  };
+
   return (
     <section className="Contact-section" id="contact">
       <motion.h1
@@ -386,15 +447,18 @@ function Contact() {
           </div>
         </div>
         <div className="col-12 col-sm-12 col-md-6 col-lg-8 contact-col2">
-          <form>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="form-name">
               <div className="form-floating">
                 <input
                   type="text"
+                  value={inputValue.Name}
                   name="Name"
                   className="form-control"
                   id="Name"
                   placeholder="Name"
+                  required
+                  onChange={formValueChangeHandler}
                 />
                 <label htmlFor="Name" className="label">
                   Name
@@ -405,10 +469,13 @@ function Contact() {
               <div className="form-floating">
                 <input
                   type="number"
+                  value={inputValue.PhoneNumber}
                   name="PhoneNumber"
                   className="form-control"
                   id="Number"
                   placeholder="Mobile Number"
+                  required
+                  onChange={formValueChangeHandler}
                 />
                 <label htmlFor="Number">Mobile Number</label>
               </div>
@@ -417,10 +484,13 @@ function Contact() {
               <div className="form-floating">
                 <input
                   type="email"
+                  value={inputValue.Email}
                   name="Email"
                   className="form-control"
                   id="Email"
                   placeholder="Email"
+                  required
+                  onChange={formValueChangeHandler}
                 />
                 <label htmlFor="Email">Email</label>
               </div>
@@ -429,10 +499,13 @@ function Contact() {
               <div className="form-floating">
                 <input
                   type="text"
+                  value={inputValue.Subject}
                   name="Subject"
                   className="form-control"
                   id="Subject"
                   placeholder="Subject"
+                  required
+                  onChange={formValueChangeHandler}
                 />
                 <label htmlFor="Subject">Subject</label>
               </div>
@@ -441,13 +514,18 @@ function Contact() {
               <div className="form-floating">
                 <textarea
                   className="form-control"
+                  value={inputValue.Message}
                   name="Message"
                   placeholder="Enter Your Message Here"
                   id="Message"
+                  onChange={formValueChangeHandler}
                 ></textarea>
                 <label htmlFor="Message">Message</label>
               </div>
             </div>
+            <button type="submit" className="btn form-btn">
+              Send
+            </button>
           </form>
         </div>
       </div>
@@ -455,6 +533,21 @@ function Contact() {
   );
 }
 const galleryCardVariants = {
+  hidden: {
+    opacity: 0.8,
+    scale: 0,
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+      stiffness: 120,
+    },
+  },
+};
+const galleryCardChildVariants = {
   hidden: {
     opacity: 0.8,
     scale: 0,
@@ -500,7 +593,10 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col2">
+          <motion.div
+            className="col-4 gallery-col2"
+            variants={galleryCardChildVariants}
+          >
             <FlipTilt
               front={Gallery1}
               back={
@@ -512,7 +608,7 @@ function Gallery() {
               stiffness="50"
               borderWidth="0px"
             />
-          </div>
+          </motion.div>
           <div className="col-4 gallery-col3">
             <FlipTilt
               front={Gallery1}

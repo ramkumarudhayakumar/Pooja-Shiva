@@ -1,0 +1,40 @@
+.floating-whatsapp {
+  position: fixed;
+  width: 150px;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+.floating-whatsapp img {
+  object-fit: cover;
+  width: 150px;
+  filter: drop-shadow(0 0 0.75rem #000000) !important;
+  animation: whatsappAni 3s ease-in-out infinite alternate-reverse;
+}
+@keyframes whatsappAni {
+  from {
+    transform: scale(1) translateY(-20px);
+  }
+  to {
+    transform: scale(0.8) translateY(0);
+  }
+}
+@media screen and (max-width: 800px) {
+  .floating-whatsapp {
+    width: 200px;
+    right: 0;
+  }
+  .floating-whatsapp img {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .floating-whatsapp {
+    width: 150px;
+    right: 43%;
+  }
+  .floating-whatsapp img {
+    width: 100px;
+  }
+}

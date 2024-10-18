@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  position: relative;
 }
 .custom-whatsapp {
   width: 10px !important;
