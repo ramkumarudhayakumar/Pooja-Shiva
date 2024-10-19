@@ -14,6 +14,8 @@ import Sivan from "../animation/Sivan.json";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../components/Header";
+import translate from "../translate/translate.json";
 
 const h1Variants = {
   hidden: {
@@ -33,8 +35,66 @@ const h1Variants = {
 export default function Home() {
   const heading = "This is";
   const heading2 = "Shivakumar";
+  const [headingTrans, setHeadingTrans] = useState(
+    "Rameshwaram is significant in many ways for Hindus as a pilgrimage to Varanasi should be started after visiting Rameswaram only and by taking the holy sand."
+  );
+  const [aboutTrans, setAboutTrans] = useState(
+    `<b>Sharma Sankara Narayanan</b> is also well known as <b>Babaji</b>. He speaks <b>Tamil, Hindi, Telugu</b> and <b>Gujarathi</b>. Swami Sankara Narayanan alias Babaji performs the following poojas`
+  );
+  const [aboutLi1Trans, setAboutLi1Trans] = useState(
+    "Sarpashanthi Pooja in Rameswaram"
+  );
+  const [aboutLi2Trans, setAboutLi2Trans] = useState(
+    "Nagaprathistai Pooja in Rameswaram"
+  );
+  const [aboutLi3Trans, setAboutLi3Trans] = useState(
+    "Pithiruhomam (Thilahomam) in Rameswaram"
+  );
+  const [aboutLi4Trans, setAboutLi4Trans] = useState(
+    "Thithi (Pindaprathanam/Pindathanam/Srartham) Pooja in Rameswaram"
+  );
+  const [aboutLi5Trans, setAboutLi5Trans] = useState(
+    "Puthrakamsti Yagam (Santhanagopalakrishna) Pooja in Rameswaram This Kshetra Prohit is located at Rameswaram."
+  );
+  const [servicesSubHeading, setServicesSubHeading] = useState({
+    servicesSubHeading1: "SARPASHANTHI",
+    servicesSubHeading2: "PITHIRUHOMAM",
+    servicesSubHeading3: "THITHI",
+    servicesSubHeading4: "NAGAPRATHISTAI",
+    servicesSubHeading5: "PUTHRAKAMSTI YAGAM",
+  });
+  const [servicesContent, setServicesContent] = useState({
+    servicesContent1:
+      "Sarpapooja is done to clear the nagadosha difficulties of life.",
+    servicesContent2:
+      "Thila homam means homam which is done using Sesame seeds.",
+    servicesContent3: "Karma is the essence of what the Pitras intend to do.",
+    servicesContent4:
+      "Naga Pratishta Puja is already existing snake god’s idols in temples.",
+    servicesContent5:
+      "Santhana Gopala Homam is done for Lord Krishna in the form of a child.",
+  });
+  const [footerContent, setFooterContent] = useState({
+    footerAboutContent:
+      "We know that honesty and transparency, coupled with reliable and friendly customer service, is what really builds customer trust.",
+    footerPromotion: "Designed and Developed by deecoders Copyrights2024",
+    footerButton: "Get In Touch",
+  });
+
   return (
     <Fragment>
+      <Header
+        setHeadingTrans={setHeadingTrans}
+        setAboutTrans={setAboutTrans}
+        setAboutLi1Trans={setAboutLi1Trans}
+        setAboutLi2Trans={setAboutLi2Trans}
+        setAboutLi3Trans={setAboutLi3Trans}
+        setAboutLi4Trans={setAboutLi4Trans}
+        setAboutLi5Trans={setAboutLi5Trans}
+        setServicesSubHeading={setServicesSubHeading}
+        setServicesContent={setServicesContent}
+        setFooterContent={setFooterContent}
+      />
       <main id="home">
         <BgParticles />
         <div className="home">
@@ -93,11 +153,7 @@ export default function Home() {
                   );
                 })}
               </div>
-              <p>
-                Rameshwaram is significant in many ways for Hindus as a
-                pilgrimage to Varanasi should be started after visiting
-                Rameswaram only and by taking the holy sand.
-              </p>
+              <p>{headingTrans}</p>
               {/* <span className="home-col1-span"></span> */}
             </div>
           </div>
@@ -108,11 +164,21 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <About />
-      <Services />
+      <About
+        aboutTrans={aboutTrans}
+        aboutLi1Trans={aboutLi1Trans}
+        aboutLi2Trans={aboutLi2Trans}
+        aboutLi3Trans={aboutLi3Trans}
+        aboutLi4Trans={aboutLi4Trans}
+        aboutLi5Trans={aboutLi5Trans}
+      />
+      <Services
+        servicesSubHeading={servicesSubHeading}
+        servicesContent={servicesContent}
+      />
       <Contact />
       <Gallery />
-      <Footer />
+      <Footer footerContent={footerContent} />
     </Fragment>
   );
 }
@@ -131,7 +197,14 @@ const aboutCol2Variants = {
   },
 };
 
-function About() {
+function About({
+  aboutTrans,
+  aboutLi1Trans,
+  aboutLi2Trans,
+  aboutLi3Trans,
+  aboutLi4Trans,
+  aboutLi5Trans,
+}) {
   return (
     <section className="About-section" id="about">
       <div className="container">
@@ -154,23 +227,14 @@ function About() {
             <div className="card">
               <div className="card-body">
                 <h1>Welcome to RAMESHWARAM POOJA</h1>
-                <h5>
-                  <b> Sharma Sankara Narayanan</b> is also well known as Babaji.
-                  He speaks <b>Tamil, Hindi, Telugu and Gujarathi</b>. Swami
-                  Sankara Narayanan alias Babaji performs the following poojas
-                </h5>
+                <h5 dangerouslySetInnerHTML={{ __html: aboutTrans }} />
+
                 <ul>
-                  <li>Sarpashanthi Pooja in Rameswaram</li>
-                  <li>Nagaprathistai Pooja in Rameswaram</li>
-                  <li>Pithiruhomam (Thilahomam) in Rameswaram</li>
-                  <li>
-                    Thithi (Pindaprathanam/Pindathanam/Srartham) Pooja in
-                    Rameswaram
-                  </li>
-                  <li>
-                    Puthrakamsti Yagam (Santhanagopalakrishna) Pooja in
-                    Rameswaram This Kshetra Prohit is located at Rameswaram.
-                  </li>
+                  <li>{aboutLi1Trans}</li>
+                  <li>{aboutLi2Trans}</li>
+                  <li>{aboutLi3Trans}</li>
+                  <li>{aboutLi4Trans}</li>
+                  <li>{aboutLi5Trans}</li>
                 </ul>
               </div>
             </div>
@@ -236,7 +300,7 @@ const serviveLeftVariants = {
     },
   },
 };
-function Services() {
+function Services({ servicesSubHeading, servicesContent }) {
   return (
     <section className="Services-section" id="services">
       <div className="Hanuman-Ani">
@@ -264,18 +328,21 @@ function Services() {
           >
             <div className="card">
               <div className="card-body">
-                <h5 className="servive-colums-h5">SARPASHANTHI</h5>
+                <h5 className="servive-colums-h5">
+                  {servicesSubHeading.servicesSubHeading1}
+                </h5>
                 <p className="servive-colums-p">
-                  Sarpapooja is done to clear the nagadosha difficulties of
-                  life.
+                  {servicesContent.servicesContent1}
                 </p>
               </div>
             </div>
             <div className="card">
               <div className="card-body">
-                <h5 className="servive-colums-h5">PITHIRUHOMAM</h5>
+                <h5 className="servive-colums-h5">
+                  {servicesSubHeading.servicesSubHeading2}
+                </h5>
                 <p className="servive-colums-p">
-                  Thila homam means homam which is done using Sesame seeds.
+                  {servicesContent.servicesContent2}
                 </p>
               </div>
             </div>
@@ -288,9 +355,11 @@ function Services() {
           >
             <div className="card">
               <div className="card-body">
-                <h5 className="servive-colums-h5">THITHI</h5>
+                <h5 className="servive-colums-h5">
+                  {servicesSubHeading.servicesSubHeading3}
+                </h5>
                 <p className="servive-colums-p">
-                  Karma is the essence of what the Pitras intend to do.
+                  {servicesContent.servicesContent3}
                 </p>
               </div>
             </div>
@@ -303,19 +372,21 @@ function Services() {
           >
             <div className="card">
               <div className="card-body">
-                <h5 className="servive-colums-h5">NAGAPRATHISTAI</h5>
+                <h5 className="servive-colums-h5">
+                  {servicesSubHeading.servicesSubHeading4}
+                </h5>
                 <p className="servive-colums-p">
-                  Naga Pratishta Puja is already existing snake god’s idols in
-                  temples.
+                  {servicesContent.servicesContent4}
                 </p>
               </div>
             </div>
             <div className="card">
               <div className="card-body">
-                <h5 className="servive-colums-h5">PUTHRAKAMSTI YAGAM</h5>
+                <h5 className="servive-colums-h5">
+                  {servicesSubHeading.servicesSubHeading5}
+                </h5>
                 <p className="servive-colums-p">
-                  Santhana Gopala Homam is done for Lord Krishna in the form of
-                  a child.
+                  {servicesContent.servicesContent5}
                 </p>
               </div>
             </div>
@@ -580,7 +651,7 @@ function Gallery() {
           initial="hidden"
           whileInView="visible"
         >
-          <div className="col-4 gallery-col1">
+          <div className="col-6 col-sm-4 gallery-col1">
             <FlipTilt
               front={Gallery1}
               back={
@@ -594,7 +665,7 @@ function Gallery() {
             />
           </div>
           <motion.div
-            className="col-4 gallery-col2"
+            className="col-6 col-sm-4 gallery-col2"
             variants={galleryCardChildVariants}
           >
             <FlipTilt
@@ -609,7 +680,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </motion.div>
-          <div className="col-4 gallery-col3">
+          <div className="col-6 col-sm-4 gallery-col3">
             <FlipTilt
               front={Gallery1}
               back={
@@ -622,7 +693,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col4">
+          <div className="col-6 col-sm-4 gallery-col4">
             <FlipTilt
               front={Gallery1}
               back={
@@ -635,7 +706,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col5">
+          <div className="col-6 col-sm-4 gallery-col5">
             <FlipTilt
               front={Gallery1}
               back={
@@ -648,7 +719,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col6">
+          <div className="col-6 col-sm-4 gallery-col6">
             <FlipTilt
               front={Gallery1}
               back={
@@ -661,7 +732,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col7">
+          <div className="col-6 col-sm-4 gallery-col7">
             <FlipTilt
               front={Gallery1}
               back={
@@ -674,7 +745,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col8">
+          <div className="col-6 col-sm-4 gallery-col8">
             <FlipTilt
               front={Gallery1}
               back={
@@ -687,7 +758,7 @@ function Gallery() {
               borderWidth="0px"
             />
           </div>
-          <div className="col-4 gallery-col9">
+          <div className="col-12 col-sm-4 gallery-col9">
             <FlipTilt
               front={Gallery1}
               back={

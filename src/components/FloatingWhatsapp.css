@@ -4,6 +4,7 @@
   bottom: 0;
   right: 0;
   z-index: 999;
+  user-select: none;
 }
 .floating-whatsapp img {
   object-fit: cover;

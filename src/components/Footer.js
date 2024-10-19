@@ -3,18 +3,16 @@ import "./Footer.css";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { FaRegCopyright } from "react-icons/fa6";
 
-export default function Footer() {
+export default function Footer({ footerContent }) {
   return (
     <footer>
       <div className="row">
         <div className="col-6 col-sm-4 footer-col1">
           <div>
             <h4>ABOUT</h4>
-            <p>
-              We know that honesty and transparency, coupled with reliable and
-              friendly customer service, is what really builds customer trust.
-            </p>
+            <p>{footerContent.footerAboutContent}</p>
             <div className="social-icons">
               <a href="#" type="button" className="btn footer-icon">
                 <FaFacebookF className="footer-iconic" />
@@ -41,13 +39,12 @@ export default function Footer() {
         <div className="col-12 col-sm-4 footer-col3">
           <div className="footer-col3-div">
             <h4 className="text-center">
-              Designed and Developed by deecoders Copyrights
-              {/* <FaRegCopyright className="copyrights-icon me-1" /> */}
-              2024
+              {footerContent.footerPromotion}
+              <FaRegCopyright className="copyright-icon" />
             </h4>
             <div className="footer-btndiv">
               <a href="#" type="button" className="btn">
-                Get In Touch
+                {footerContent.footerButton}
               </a>
             </div>
           </div>

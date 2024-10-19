@@ -3,6 +3,7 @@
 main {
   width: 100vw;
   margin-top: 80px;
+  user-select: none;
 }
 .home {
   width: 100%;
@@ -158,6 +159,7 @@ main {
 
 .About-section {
   margin-top: 100px;
+  user-select: none;
 }
 .About-col1 {
   display: flex;
@@ -220,6 +222,7 @@ main {
 .Services-section {
   margin-top: 100px;
   position: relative;
+  user-select: none;
 }
 .Hanuman-Ani {
   position: absolute;
@@ -334,6 +337,7 @@ main {
   word-spacing: 5px;
   margin-bottom: 70px;
   transform-origin: top;
+  user-select: none;
 }
 .contact-col2 form {
   width: 100%;
@@ -341,6 +345,7 @@ main {
   justify-content: center;
   gap: 43px 20px;
   flex-wrap: wrap;
+  user-select: none;
 }
 .form-name,
 .form-number,
@@ -363,6 +368,7 @@ main {
   word-spacing: 5px;
   margin-bottom: 30px;
   margin-left: 30px;
+  user-select: none;
 }
 .contact-col2 form input {
   background-color: transparent;
@@ -474,6 +480,7 @@ main {
   word-spacing: 5px;
   margin-bottom: 70px;
   transform-origin: top;
+  user-select: none;
 }
 .gallery-row {
   background: linear-gradient(
@@ -486,6 +493,7 @@ main {
   transform-origin: top;
   /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+  user-select: none;
 }
 
 .gallery-col1,
@@ -795,8 +803,8 @@ main {
   }
 
   .Gallery-card {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
   }
   .gallery-col1,
   .gallery-col2,
@@ -808,10 +816,10 @@ main {
   .gallery-col8,
   .gallery-col9,
   .gallery-col10 {
-    padding: 5px 0;
+    padding: 10px 0px;
   }
   .Flip-Content h1 {
-    font-size: 0.6rem;
+    font-size: 1rem;
   }
   .gallery-section .container > h1,
   .Contact-section h1,

@@ -71,6 +71,14 @@ footer::before {
   word-spacing: 5px;
   position: relative;
   width: auto;
+  user-select: none;
+}
+.copyright-icon {
+  color: #8fd3f4;
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 3px;
+  margin-left: 1px;
 }
 .footer-col2 > div h4 {
   margin-left: 10px;
@@ -205,6 +213,9 @@ footer::before {
     letter-spacing: 1.7px;
     word-spacing: 4px;
   }
+  .copyright-icon {
+    font-size: 1.2rem;
+  }
   .footer-col1 > div p {
     font-size: 16px;
   }
@@ -219,6 +230,9 @@ footer::before {
     font-size: 1rem;
     letter-spacing: 1.7px;
     word-spacing: 4px;
+  }
+  .copyright-icon {
+    font-size: 1rem;
   }
   .footer-col1 > div p {
     font-size: 13px;

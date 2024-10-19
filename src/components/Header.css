@@ -3,6 +3,7 @@ header {
   color: #ffffff;
   display: grid;
   align-items: center;
+  user-select: none;
 }
 .header-unscroll {
   background-color: transparent;
