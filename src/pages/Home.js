@@ -457,150 +457,160 @@ function Contact() {
   };
 
   return (
-    <section className="Contact-section" id="contact">
-      <motion.h1
-        className="text-center"
-        variants={HeadingVariants}
-        initial="hidden"
-        whileInView="visible"
-      >
-        CONTACT US
-      </motion.h1>
-      <div className="row">
-        <div className="col-12 col-sm-12 col-md-6 col-lg-4 contact-col1">
-          <h2 className="">Get In Touch</h2>
-          <div className="getintouch-Parent">
-            <div className="getintouch-Parent-subdiv1">
-              <div className="Location-Ani">
-                <Lottie
-                  animationData={Location}
-                  loop={true}
-                  className="Location-lottie-Ani"
-                />
-              </div>
-              <div className="Phone-Ani">
-                <Lottie
-                  animationData={Phone}
-                  loop={true}
-                  className="Phone-lottie-Ani"
-                />
-              </div>
-              <div className="Email-Ani">
-                <Lottie
-                  animationData={Email}
-                  loop={true}
-                  className="Email-lottie-Ani"
-                />
-              </div>
-            </div>
-            <div className="getintouch-Parent-subdiv2">
-              <div className="getInTouch-locationdiv">
-                <div className="Location-content">
-                  <h5>ADDRESS:</h5>
-                  <p>21/81, VTPM Street, Rameswaram – 623 526.</p>
+    <Fragment>
+      <section className="Contact-section" id="contact">
+        <motion.h1
+          className="text-center"
+          variants={HeadingVariants}
+          initial="hidden"
+          whileInView="visible"
+        >
+          CONTACT US
+        </motion.h1>
+        <div className="row">
+          <div className="col-12 col-sm-12 col-md-6 col-lg-4 contact-col1">
+            <h2 className="">Get In Touch</h2>
+            <div className="getintouch-Parent">
+              <div className="getintouch-Parent-subdiv1">
+                <div className="Location-Ani">
+                  <Lottie
+                    animationData={Location}
+                    loop={true}
+                    className="Location-lottie-Ani"
+                  />
+                </div>
+                <div className="Phone-Ani">
+                  <Lottie
+                    animationData={Phone}
+                    loop={true}
+                    className="Phone-lottie-Ani"
+                  />
+                </div>
+                <div className="Email-Ani">
+                  <Lottie
+                    animationData={Email}
+                    loop={true}
+                    className="Email-lottie-Ani"
+                  />
                 </div>
               </div>
-              <div className="getInTouch-Phonediv">
-                <div className="Location-content">
-                  <h5 className="">CALL US:</h5>
-                  <p>
-                    96778 21794, <br /> 98652 71648
-                  </p>
+              <div className="getintouch-Parent-subdiv2">
+                <div className="getInTouch-locationdiv">
+                  <div className="Location-content">
+                    <h5>ADDRESS:</h5>
+                    <p>21/81, VTPM Street, Rameswaram – 623 526.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="getInTouch-Emaildiv">
-                <div className="Location-content">
-                  <h5>EMAIL:</h5>
-                  <p>baba441971@gmail.com</p>
+                <div className="getInTouch-Phonediv">
+                  <div className="Location-content">
+                    <h5 className="">CALL US:</h5>
+                    <p>
+                      96778 21794, <br /> 98652 71648
+                    </p>
+                  </div>
+                </div>
+                <div className="getInTouch-Emaildiv">
+                  <div className="Location-content">
+                    <h5>EMAIL:</h5>
+                    <p>baba441971@gmail.com</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div className="col-12 col-sm-12 col-md-6 col-lg-8 contact-col2">
+            <form ref={form} onSubmit={sendEmail}>
+              <div className="form-name">
+                <div className="form-floating">
+                  <input
+                    type="text"
+                    value={inputValue.Name}
+                    name="Name"
+                    className="form-control"
+                    id="Name"
+                    placeholder="Name"
+                    required
+                    onChange={formValueChangeHandler}
+                  />
+                  <label htmlFor="Name" className="label">
+                    Name
+                  </label>
+                </div>
+              </div>
+              <div className="form-number">
+                <div className="form-floating">
+                  <input
+                    type="number"
+                    value={inputValue.PhoneNumber}
+                    name="PhoneNumber"
+                    className="form-control"
+                    id="Number"
+                    placeholder="Mobile Number"
+                    required
+                    onChange={formValueChangeHandler}
+                  />
+                  <label htmlFor="Number">Mobile Number</label>
+                </div>
+              </div>
+              <div className="form-email">
+                <div className="form-floating">
+                  <input
+                    type="email"
+                    value={inputValue.Email}
+                    name="Email"
+                    className="form-control"
+                    id="Email"
+                    placeholder="Email"
+                    required
+                    onChange={formValueChangeHandler}
+                  />
+                  <label htmlFor="Email">Email</label>
+                </div>
+              </div>
+              <div className="form-subject">
+                <div className="form-floating">
+                  <input
+                    type="text"
+                    value={inputValue.Subject}
+                    name="Subject"
+                    className="form-control"
+                    id="Subject"
+                    placeholder="Subject"
+                    required
+                    onChange={formValueChangeHandler}
+                  />
+                  <label htmlFor="Subject">Subject</label>
+                </div>
+              </div>
+              <div className="form-textarea">
+                <div className="form-floating">
+                  <textarea
+                    className="form-control"
+                    value={inputValue.Message}
+                    name="Message"
+                    placeholder="Enter Your Message Here"
+                    id="Message"
+                    onChange={formValueChangeHandler}
+                  ></textarea>
+                  <label htmlFor="Message">Message</label>
+                </div>
+              </div>
+              <button type="submit" className="btn form-btn">
+                Send
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="col-12 col-sm-12 col-md-6 col-lg-8 contact-col2">
-          <form ref={form} onSubmit={sendEmail}>
-            <div className="form-name">
-              <div className="form-floating">
-                <input
-                  type="text"
-                  value={inputValue.Name}
-                  name="Name"
-                  className="form-control"
-                  id="Name"
-                  placeholder="Name"
-                  required
-                  onChange={formValueChangeHandler}
-                />
-                <label htmlFor="Name" className="label">
-                  Name
-                </label>
-              </div>
-            </div>
-            <div className="form-number">
-              <div className="form-floating">
-                <input
-                  type="number"
-                  value={inputValue.PhoneNumber}
-                  name="PhoneNumber"
-                  className="form-control"
-                  id="Number"
-                  placeholder="Mobile Number"
-                  required
-                  onChange={formValueChangeHandler}
-                />
-                <label htmlFor="Number">Mobile Number</label>
-              </div>
-            </div>
-            <div className="form-email">
-              <div className="form-floating">
-                <input
-                  type="email"
-                  value={inputValue.Email}
-                  name="Email"
-                  className="form-control"
-                  id="Email"
-                  placeholder="Email"
-                  required
-                  onChange={formValueChangeHandler}
-                />
-                <label htmlFor="Email">Email</label>
-              </div>
-            </div>
-            <div className="form-subject">
-              <div className="form-floating">
-                <input
-                  type="text"
-                  value={inputValue.Subject}
-                  name="Subject"
-                  className="form-control"
-                  id="Subject"
-                  placeholder="Subject"
-                  required
-                  onChange={formValueChangeHandler}
-                />
-                <label htmlFor="Subject">Subject</label>
-              </div>
-            </div>
-            <div className="form-textarea">
-              <div className="form-floating">
-                <textarea
-                  className="form-control"
-                  value={inputValue.Message}
-                  name="Message"
-                  placeholder="Enter Your Message Here"
-                  id="Message"
-                  onChange={formValueChangeHandler}
-                ></textarea>
-                <label htmlFor="Message">Message</label>
-              </div>
-            </div>
-            <button type="submit" className="btn form-btn">
-              Send
-            </button>
-          </form>
+      </section>
+      <div className="God-card-section">
+        <div className="card">
+          <img src="" alt="card-god" className="card-image" />
+        </div>
+        <div className="card">
+          <img src="" alt="card-god" className="card-image" />{" "}
         </div>
       </div>
-    </section>
+    </Fragment>
   );
 }
 const galleryCardVariants = {

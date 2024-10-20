@@ -469,6 +469,40 @@ main {
   color: #301934;
 }
 
+.God-card-section {
+  width: 100vw;
+  height: auto;
+  margin: 0px 0 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.God-card-section .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  aspect-ratio: 1/1;
+  margin: 0 50px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 50px;
+  background: linear-gradient(45deg, #ffdbbb, #ffa500);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  outline: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 15px;
+}
+.God-card-section .card:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.God-card-section .card img {
+  object-fit: cover;
+}
 .gallery-section .container > h1 {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(45deg, #780206, #061161);
@@ -801,7 +835,28 @@ main {
   .home-col2 {
     padding-bottom: 50px;
   }
-
+  .God-card-section {
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .God-card-section .card {
+    width: 300px;
+    aspect-ratio: 1/1;
+    margin: 0 50px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50px;
+    background: linear-gradient(45deg, #ffdbbb, #ffa500);
+    transition: all 0.3s ease-in-out;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+      rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 15px;
+  }
   .Gallery-card {
     width: 150px;
     height: 150px;
